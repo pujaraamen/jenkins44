@@ -6,7 +6,7 @@ pipeline {
         stage('Clone Code') {
             agent any
             steps {
-                git 'https://github.com/pujaraamen/autotest1.git'
+                git 'https://github.com/pujaraamen/jenkins44.git'
             }
         }
 
@@ -14,7 +14,7 @@ pipeline {
             parallel {
 
                 stage('Agent1 Deploy') {
-                    agent { label 'docker-agent1' }
+                    agent { label 'dockeragent1' }
                     steps {
                         sh '''
                         echo "Deploying on Agent1"
@@ -28,7 +28,7 @@ pipeline {
                 }
 
                 stage('Agent2 Deploy') {
-                    agent { label 'docker-agent2' }
+                    agent { label 'dockeragent2' }
                     steps {
                         sh '''
                         echo "Deploying on Agent2"
